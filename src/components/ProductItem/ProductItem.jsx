@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import classes from "./ProductItem.module.css";
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContextProvider";
-import deleteIcon from "../../assets/deleteIcon.png";
 
 export default function ProductItem({ id, productName, productPrice, productImage }) {
   const { addItemToTheCart, cartItemCounter, deleteItemFromCart } = useContext(ShopContext);
@@ -17,7 +16,10 @@ export default function ProductItem({ id, productName, productPrice, productImag
         <div className={classes.AddAndDeleteBtn}>
           <button
             className={classes.AddToCart}
-            onClick={() => addItemToTheCart(id)}
+            onClick={() => {
+              console.log(`Add to cart clicked for product ID: ${id}`);
+              addItemToTheCart(id)}
+            }
             aria-label={`Add ${productName} to cart`}
           >
             Add To Cart {itemCount}
@@ -28,7 +30,7 @@ export default function ProductItem({ id, productName, productPrice, productImag
             onClick={() => deleteItemFromCart(id)}
             aria-label={`Delete ${productName} from cart`}
           >
-            <img className={classes.Delete} src={deleteIcon} alt="Delete" />
+            Delete
           </button>
         </div>
       </div>
@@ -39,6 +41,6 @@ export default function ProductItem({ id, productName, productPrice, productImag
 ProductItem.propTypes = {
   id: PropTypes.number.isRequired,
   productName: PropTypes.string.isRequired,
-  productPrice: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  productPrice: PropTypes.number.isRequired,
   productImage: PropTypes.string.isRequired,
 };

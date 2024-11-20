@@ -5,7 +5,6 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 export default function Shop() {
   return (
     <div className={classes.Shop}>
-      <h1 className={classes.ShopWelcoming}>Welcome To IPhone Shop!</h1>
       <div className={classes.productsDiv}>
         {PRODUCTS.map((product) => (
           <ProductItem

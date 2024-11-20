@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="links">
-        <Link to="/"> Zaina&apos;s Shop </Link>
+        <Link to="/"> IPhone&apos;s Shop </Link>
         <Link to="/cart">
           <ShoppingCart className="cart-icon" />
         </Link>

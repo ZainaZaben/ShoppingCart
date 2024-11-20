@@ -8,10 +8,12 @@
     border-radius: 20px;
     padding: 30px 0px;
     width: 90%;
+    background-color: white;
 }
 
 .ProductItem img {
-    width: 35%;
+    width: 45%;
+    height: 65%;
 }
 
 .ProductItem img:hover {
@@ -41,7 +43,12 @@
     align-items: center;
 }
 
-.AddToCart {
+.AddAndDeleteBtn button {
+    margin-right: 10px;
+}
+
+.AddToCart,
+.DeleteFromCart {
     background-color: #fcfbf6;
     border-radius: 10px;
     border: 2px solid black;
@@ -52,7 +59,8 @@
     font-size: 0.9em;
 }
 
-.AddToCart:hover {
+.AddToCart:hover,
+.DeleteFromCart:hover {
     background-color: black;
     color: white;
 }

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContextProvider";
-import deleteIcon from "../../assets/deleteIcon.png";
 import "./style.css";
 import PropTypes from "prop-types";
 
@@ -8,8 +7,8 @@ export default function CartItem({ data }) {
   const { id, productName, productPrice, productImage } = data;
   const {
     cartItemCounter,
-    addOneMoreItemToCart,
     removeOneMoreItemFromCart,
+    addItemToTheCart,
     deleteItemFromCart,
     updateCartItemCount,
   } = useContext(ShopContext);
@@ -20,6 +19,7 @@ export default function CartItem({ data }) {
       updateCartItemCount(newCount, id);
     }
   };
+
 
   return (
     <div className="cartItem">
@@ -32,14 +32,14 @@ export default function CartItem({ data }) {
         <p>
           <strong>{productName}</strong>
         </p>
-        <p>Price: ${productPrice.toFixed(2)}</p>
+        <p>Price:  ${productPrice.toFixed(2)}</p>
         <div className="countHandler">
           <button
             className="minus-btn"
             aria-label={`Remove one ${productName}`}
             onClick={() => removeOneMoreItemFromCart(id)}
           >
-            −
+            -
           </button>
           <input
             type="number"
@@ -50,7 +50,7 @@ export default function CartItem({ data }) {
           <button
             className="plus-btn"
             aria-label={`Add one more ${productName}`}
-            onClick={() => addOneMoreItemToCart(id)}
+            onClick={() => addItemToTheCart(id)}
           >
             +
           </button>
@@ -59,11 +59,7 @@ export default function CartItem({ data }) {
             aria-label={`Delete ${productName} from cart`}
             onClick={() => deleteItemFromCart(id)}
           >
-            <img
-              className="delete-icon"
-              src={deleteIcon}
-              alt={`Delete ${productName}`}
-            ></img>
+          
           </button>
         </div>
       </div>
@@ -75,8 +71,7 @@ CartItem.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     productName: PropTypes.string.isRequired,
-    productPrice: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-      .isRequired,
+    productPrice: PropTypes.number.isRequired,
     productImage: PropTypes.string.isRequired,
   }).isRequired,
 };

@@ -15,12 +15,17 @@ function getDefaultProducts() {
 export default function ShopContextProvider(props) {
   const [cartItemCounter, setCartItemCounter] = useState(getDefaultProducts());
 
+  const removeOneMoreItemFromCart = (itemId) => {
+    setCartItemCounter((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+  };
+
   const addItemToTheCart = (ItemID) => {
     setCartItemCounter((prev) => {
       const newCart = { ...prev, [ItemID]: prev[ItemID] + 1 };
       console.log('Updated cart:', newCart);
       return newCart;
     });
+    console.log("Cart Items:", cartItemCounter);
   };
   
 
@@ -36,17 +41,19 @@ export default function ShopContextProvider(props) {
     let totalAmount = 0;
     for (const item in cartItemCounter) {
       if (cartItemCounter[item] > 0) {
-        let foundItem = PRODUCTS.find((product) => product.id === Number(item));
-        const price = parseFloat(foundItem.productPrice.replace('$', ''));
-        totalAmount += cartItemCounter[item] * price;
+        const foundItem = PRODUCTS.find((product) => product.id === Number(item));
+        if (foundItem) {
+          totalAmount += cartItemCounter[item] * foundItem.productPrice;
+        }
       }
     }
     return totalAmount;
-  };
+  };  
   
 
   const contextValue = {
     cartItemCounter,
+    removeOneMoreItemFromCart,
     addItemToTheCart,
     deleteItemFromCart,
     updateCartItemCount,
