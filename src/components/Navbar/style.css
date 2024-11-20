@@ -1,0 +1,33 @@
+.navbar {
+    width: 100%;
+    height: 65px;
+    background-color: #131313;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.links {
+    margin-right: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.cart-icon {
+    color: white;
+    margin-left: 20px;
+    font-size: 32px;
+}
+
+.cart-icon:hover {
+    color: #86b7da;
+    cursor: pointer;
+}
