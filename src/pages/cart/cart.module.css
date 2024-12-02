@@ -1,0 +1,78 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.cartPageHeader {
+    font-size: 2em;
+}
+
+.continueAndCheckout {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.continueAndCheckout button {
+    width: auto;
+    min-width: 150px;
+    height: 50px;
+    background-color: rgb(38, 37, 37);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0 15px;
+}
+
+.continueAndCheckout button:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.totalAmount {
+    font-size: 20px;
+    font-weight: 550;
+    margin: 25px;
+}
+
+@media (max-width: 768px) {
+    .cartPageHeader {
+        font-size: 1.5em;
+    }
+
+    .totalAmount {
+        font-size: 18px;
+        margin: 20px;
+    }
+
+    .continueAndCheckout button {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart {
+        padding: 5px;
+    }
+
+    .continueAndCheckout {
+        margin-bottom: 60px;
+    }
+
+    .continueAndCheckout button {
+        height: 40px;
+        font-size: 13px;
+        padding: 0 8px;
+    }
+
+    .totalAmount {
+        font-size: 16px;
+        margin: 15px;
+    }
+}
